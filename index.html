@@ -105,11 +105,14 @@
         </div>
 
         <div class="flex items-center gap-3">
-          <div class="hidden md:flex items-center gap-2 text-xs text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>Target: Viorel & Shaw Cole</span>
-          </div>
-          <a href="#calculator" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+          <a href="https://github.com/ShawCole/bionic-agent-harness" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+            <i data-lucide="github" class="w-4 h-4 text-white"></i>
+            <span>GitHub Repository</span>
+          </a>
+          <a href="#build-guide" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-700 transition">
+            Build Instructions
+          </a>
+          <a href="#calculator" class="hidden md:inline-flex text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-700 transition">
             Hardware Calculator
           </a>
           <a href="#roadmap" class="text-xs bg-brand-600 hover:bg-brand-500 text-white font-medium px-3.5 py-1.5 rounded-lg shadow-sm transition">
@@ -138,6 +141,20 @@
           <p class="mt-6 text-lg text-slate-300 leading-relaxed">
             A comprehensive architectural extraction of <strong>LM Studio Bionic</strong>: the open-weight autonomous developer harness that pairs Apple Silicon MLX caching, bidirectional Excalidraw design canvas, and offline Voxtral voice dictation.
           </p>
+
+          <!-- Action Buttons -->
+          <div class="mt-8 flex flex-wrap gap-4 items-center">
+            <a href="https://github.com/ShawCole/bionic-agent-harness" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-accent-cyan hover:from-brand-500 hover:to-accent-cyan text-white font-semibold text-sm shadow-lg shadow-brand-600/30 transition flex items-center gap-2">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span>View GitHub Repository</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5 opacity-70"></i>
+            </a>
+            <a href="#build-guide" class="px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-sm transition flex items-center gap-2">
+              <i data-lucide="terminal" class="w-4 h-4 text-brand-400"></i>
+              <span>Step-by-Step Build Guide</span>
+            </a>
+          </div>
+
           <div class="mt-8 flex flex-wrap gap-4 items-center">
             <div class="flex items-center gap-2 text-sm text-slate-400">
               <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
@@ -233,87 +250,176 @@
       </div>
     </section>
 
-    <!-- Interactive Hardware & Memory Sizing Calculator -->
-    <section id="calculator" class="py-16 bg-slate-900/40 border-y border-slate-900">
+    <!-- STEP-BY-STEP BUILD & RUN INSTRUCTIONS -->
+    <section id="build-guide" class="py-16 bg-slate-900/60 border-y border-slate-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 text-center max-w-2xl mx-auto">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20 mb-3">
-            <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
-            <span>Interactive Simulator</span>
+        <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-brand-500/10 text-brand-400 border border-brand-500/20 mb-3">
+              <i data-lucide="code" class="w-3.5 h-3.5"></i>
+              <span>Executable Blueprint</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              Build & Deployment Instructions
+            </h2>
+            <p class="text-slate-400 text-sm mt-1">
+              Clone the open-source repository and launch the full agent harness in minutes.
+            </p>
           </div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            Hardware & KV-Cache Sizing Matrix
-          </h2>
-          <p class="text-slate-400 text-sm mt-2">
-            Calculate memory footprint, token generation speed, and model fit across Apple Silicon & GPU configurations.
-          </p>
+          <a href="https://github.com/ShawCole/bionic-agent-harness" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-mono text-brand-400 hover:text-brand-300 bg-slate-950 px-4 py-2 rounded-xl border border-slate-800">
+            <span>github.com/ShawCole/bionic-agent-harness</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <!-- Controls Panel -->
-          <div class="lg:col-span-5 glass-panel p-6 rounded-2xl space-y-6">
-            <div>
-              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Target Hardware</label>
-              <select id="calcHardware" onchange="updateCalculator()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500">
-                <option value="mac16">Apple Silicon (16GB Unified RAM)</option>
-                <option value="mac36" selected>Apple Silicon (36GB Unified RAM)</option>
-                <option value="mac64">Apple Silicon (64GB Unified RAM)</option>
-                <option value="mac128">Apple Silicon (128GB Unified RAM)</option>
-                <option value="rtx4090">NVIDIA RTX 4090 (24GB VRAM)</option>
-                <option value="cloud">Private ZDR Cloud Rig</option>
-              </select>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          
+          <!-- Step 1: Clone & Inference -->
+          <div class="glass-panel p-6 rounded-2xl">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-7 h-7 rounded-lg bg-brand-500/20 text-brand-400 font-mono font-bold text-xs flex items-center justify-center border border-brand-500/30">1</span>
+              <h3 class="text-base font-bold text-white">Local Inference Engine (MLX / llama.cpp)</h3>
             </div>
-
-            <div>
-              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Coding Model Selection</label>
-              <select id="calcModel" onchange="updateCalculator()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500">
-                <option value="qwen7b">Qwen 2.5 Coder 7B (Q4_K_M)</option>
-                <option value="qwen14b">Qwen 2.5 Coder 14B (Q4_K_M)</option>
-                <option value="qwen32b" selected>Qwen 2.5 Coder 32B (Q4_K_M - Recommended)</option>
-                <option value="deepseek">DeepSeek Coder V2.5 (Q4 Quantized)</option>
-              </select>
-            </div>
-
-            <div>
-              <div class="flex justify-between text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-                <span>Active Context Window</span>
-                <span id="calcContextVal" class="text-brand-400 font-mono">32,768 tokens</span>
-              </div>
-              <input type="range" id="calcContext" min="8192" max="131072" step="8192" value="32768" oninput="updateCalculator()" class="w-full accent-brand-500 h-2 bg-slate-800 rounded-lg cursor-pointer">
-              <div class="flex justify-between text-[10px] text-slate-500 mt-1 font-mono">
-                <span>8k</span>
-                <span>32k</span>
-                <span>64k</span>
-                <span>128k</span>
-              </div>
+            <p class="text-xs text-slate-300 mb-3">Start the open-weight coding model with optimized KV caching:</p>
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 overflow-x-auto space-y-2">
+              <div class="text-slate-500"># Clone repo & setup Python venv</div>
+              <div>git clone https://github.com/ShawCole/bionic-agent-harness.git</div>
+              <div>cd bionic-agent-harness && python3 -m venv venv && source venv/bin/activate</div>
+              <div>pip install -r requirements.txt</div>
+              <div class="text-slate-500 pt-2"># Run Apple MLX server (Qwen 2.5 Coder 32B)</div>
+              <div class="text-brand-400">python -m mlx_lm.server --model mlx-community/Qwen2.5-Coder-32B-Instruct-4bit --port 1234</div>
             </div>
           </div>
 
-          <!-- Dynamic Output Results -->
-          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="glass-panel p-5 rounded-xl border-l-4 border-brand-500">
-              <div class="text-xs text-slate-400">Total VRAM / RAM Required</div>
-              <div id="resMemory" class="text-2xl font-bold font-mono text-white mt-1">21.4 GB</div>
-              <div id="resMemFit" class="text-xs text-emerald-400 font-medium mt-1">✓ Fits smoothly in RAM</div>
+          <!-- Step 2: Agent Core & Tool Broker -->
+          <div class="glass-panel p-6 rounded-2xl">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-7 h-7 rounded-lg bg-accent-cyan/20 text-accent-cyan font-mono font-bold text-xs flex items-center justify-center border border-accent-cyan/30">2</span>
+              <h3 class="text-base font-bold text-white">Autonomous Agent Loop & Tool Broker</h3>
             </div>
+            <p class="text-xs text-slate-300 mb-3">Run the autonomous agent controller with file diffing and sandboxed bash:</p>
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 overflow-x-auto space-y-2">
+              <div class="text-slate-500"># Launch Agent Core against local workspace</div>
+              <div class="text-accent-cyan">python src/agent_core.py --workspace . --model-endpoint http://localhost:1234/v1</div>
+              <div class="text-slate-500 pt-2"># Run offline Voxtral speech-to-text service</div>
+              <div>python src/voxtral_stt.py --port 8765</div>
+            </div>
+          </div>
 
-            <div class="glass-panel p-5 rounded-xl border-l-4 border-accent-cyan">
-              <div class="text-xs text-slate-400">Estimated Generation Speed</div>
-              <div id="resSpeed" class="text-2xl font-bold font-mono text-white mt-1">38 tok/s</div>
-              <div class="text-xs text-slate-400 mt-1">MLX Optimized Streaming</div>
+          <!-- Step 3: Desktop UI & Excalidraw Canvas -->
+          <div class="glass-panel p-6 rounded-2xl">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-7 h-7 rounded-lg bg-accent-purple/20 text-accent-purple font-mono font-bold text-xs flex items-center justify-center border border-accent-purple/30">3</span>
+              <h3 class="text-base font-bold text-white">Desktop Workspace (Tauri v2 + React)</h3>
             </div>
+            <p class="text-xs text-slate-300 mb-3">Launch the visual workspace with bidirectional Excalidraw sync:</p>
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 overflow-x-auto space-y-2">
+              <div class="text-slate-500"># Build & run desktop application</div>
+              <div>cd web && npm install</div>
+              <div class="text-accent-purple">npm run tauri dev</div>
+              <div class="text-slate-500 pt-2"># Package native desktop binary (.dmg / .app / .deb)</div>
+              <div>npm run tauri build</div>
+            </div>
+          </div>
 
-            <div class="glass-panel p-5 rounded-xl border-l-4 border-accent-purple">
-              <div class="text-xs text-slate-400">KV Cache Overhead</div>
-              <div id="resKVCache" class="text-2xl font-bold font-mono text-white mt-1">2.4 GB</div>
-              <div class="text-xs text-slate-400 mt-1">Multi-turn Agent Loop</div>
+          <!-- Step 4: Netlify Production Deployment -->
+          <div class="glass-panel p-6 rounded-2xl">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-7 h-7 rounded-lg bg-accent-amber/20 text-accent-amber font-mono font-bold text-xs flex items-center justify-center border border-accent-amber/30">4</span>
+              <h3 class="text-base font-bold text-white">Deploy Interactive Deliverable to Netlify</h3>
             </div>
+            <p class="text-xs text-slate-300 mb-3">Publish the interactive deliverable to Netlify with single-command deployment:</p>
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs text-slate-300 overflow-x-auto space-y-2">
+              <div class="text-slate-500"># Deploy static deliverable to Netlify</div>
+              <div class="text-accent-amber">npx netlify-cli deploy --prod --dir .</div>
+              <div class="text-slate-500 pt-2"># Live URL configured:</div>
+              <div class="text-emerald-400">https://viorel-bionic-teardown.netlify.app</div>
+            </div>
+          </div>
 
-            <div class="glass-panel p-5 rounded-xl border-l-4 border-accent-amber">
-              <div class="text-xs text-slate-400">Recurring Monthly Cost</div>
-              <div class="text-2xl font-bold font-mono text-emerald-400 mt-1">$0.00 / mo</div>
-              <div class="text-xs text-slate-400 mt-1">Zero API Billing Lock-in</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Hardware & Memory Sizing Calculator -->
+    <section id="calculator" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 text-center max-w-2xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20 mb-3">
+          <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+          <span>Interactive Simulator</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          Hardware & KV-Cache Sizing Matrix
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Calculate memory footprint, token generation speed, and model fit across Apple Silicon & GPU configurations.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Controls Panel -->
+        <div class="lg:col-span-5 glass-panel p-6 rounded-2xl space-y-6">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Target Hardware</label>
+            <select id="calcHardware" onchange="updateCalculator()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500">
+              <option value="mac16">Apple Silicon (16GB Unified RAM)</option>
+              <option value="mac36" selected>Apple Silicon (36GB Unified RAM)</option>
+              <option value="mac64">Apple Silicon (64GB Unified RAM)</option>
+              <option value="mac128">Apple Silicon (128GB Unified RAM)</option>
+              <option value="rtx4090">NVIDIA RTX 4090 (24GB VRAM)</option>
+              <option value="cloud">Private ZDR Cloud Rig</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Coding Model Selection</label>
+            <select id="calcModel" onchange="updateCalculator()" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-500">
+              <option value="qwen7b">Qwen 2.5 Coder 7B (Q4_K_M)</option>
+              <option value="qwen14b">Qwen 2.5 Coder 14B (Q4_K_M)</option>
+              <option value="qwen32b" selected>Qwen 2.5 Coder 32B (Q4_K_M - Recommended)</option>
+              <option value="deepseek">DeepSeek Coder V2.5 (Q4 Quantized)</option>
+            </select>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
+              <span>Active Context Window</span>
+              <span id="calcContextVal" class="text-brand-400 font-mono">32,768 tokens</span>
             </div>
+            <input type="range" id="calcContext" min="8192" max="131072" step="8192" value="32768" oninput="updateCalculator()" class="w-full accent-brand-500 h-2 bg-slate-800 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-500 mt-1 font-mono">
+              <span>8k</span>
+              <span>32k</span>
+              <span>64k</span>
+              <span>128k</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Output Results -->
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="glass-panel p-5 rounded-xl border-l-4 border-brand-500">
+            <div class="text-xs text-slate-400">Total VRAM / RAM Required</div>
+            <div id="resMemory" class="text-2xl font-bold font-mono text-white mt-1">21.4 GB</div>
+            <div id="resMemFit" class="text-xs text-emerald-400 font-medium mt-1">✓ Fits smoothly in RAM</div>
+          </div>
+
+          <div class="glass-panel p-5 rounded-xl border-l-4 border-accent-cyan">
+            <div class="text-xs text-slate-400">Estimated Generation Speed</div>
+            <div id="resSpeed" class="text-2xl font-bold font-mono text-white mt-1">38 tok/s</div>
+            <div class="text-xs text-slate-400 mt-1">MLX Optimized Streaming</div>
+          </div>
+
+          <div class="glass-panel p-5 rounded-xl border-l-4 border-accent-purple">
+            <div class="text-xs text-slate-400">KV Cache Overhead</div>
+            <div id="resKVCache" class="text-2xl font-bold font-mono text-white mt-1">2.4 GB</div>
+            <div class="text-xs text-slate-400 mt-1">Multi-turn Agent Loop</div>
+          </div>
+
+          <div class="glass-panel p-5 rounded-xl border-l-4 border-accent-amber">
+            <div class="text-xs text-slate-400">Recurring Monthly Cost</div>
+            <div class="text-2xl font-bold font-mono text-emerald-400 mt-1">$0.00 / mo</div>
+            <div class="text-xs text-slate-400 mt-1">Zero API Billing Lock-in</div>
           </div>
         </div>
       </div>
@@ -434,7 +540,10 @@
           <span>Targeted for: <strong class="text-slate-400">Viorel & Shaw Cole</strong></span>
         </div>
         <div class="flex items-center gap-4">
-          <span>Netlify Production Build</span>
+          <a href="https://github.com/ShawCole/bionic-agent-harness" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition flex items-center gap-1">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+            <span>ShawCole/bionic-agent-harness</span>
+          </a>
           <span>•</span>
           <span class="text-brand-400 font-mono">Status: Authenticated</span>
         </div>
